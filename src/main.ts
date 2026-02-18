@@ -30,6 +30,8 @@ function processData() {
   const row = document.createElement("tr");
 
   const nameCol = document.createElement("td");
+  try {
+  if (!name.value) throw new Error("A név értéket meg kell adni");
   nameCol.textContent = name.value;
   row.appendChild(nameCol);
   
@@ -38,6 +40,9 @@ function processData() {
   row.appendChild(typeCol);
 
   const countCol = document.createElement("td");
+  if (parseInt(count.value)>tickets[type.selectedIndex].max) throw new Error("A maxnál nem lehet többet venni");
+  if (!(parseInt(count.value)>0)) throw new Error("Nem lehet 0 vagy negatív jegyet venni");
+  
   const price = parseInt(count.value)*tickets[type.selectedIndex].price;
   countCol.textContent = price.toString();
   row.appendChild(countCol);
@@ -45,7 +50,8 @@ function processData() {
   table.appendChild(row);
 
   sumPrice+= price;
-  (document.getElementById("sumPrice") as HTMLTableCellElement).textContent = sumPrice.toString();
+  (document.getElementById("sumPrice") as HTMLTableCellElement).textContent = sumPrice.toString();}
+  catch(err) {alert(err)}
 }
 
 document.addEventListener("DOMContentLoaded",init);
