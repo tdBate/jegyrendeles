@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="form">
+    <label>Név</label> <br>
+    <input id="inpName" type="text"> <br>
+    <label>Esemény típus</label>
+    <select>
+      <option value="a">a</option>
+      <option value="b">b</option>
+      <option value="c">c</option>
+    </select> <br>
+    <label>Darabszám</label> <br>
+    <input id="inpCount" type="number"> <br>
+    <button id="btnSend">Küld</button>
+  </div>
+
+  <table>
+    <header>
+      <th>Név</th>
+      <th>Esemény nev</th>
+      <th>Ár</th>
+    </header>
+
+    <tfoot><th style="text-align: start;" colspan="2">Végösszeg:</th> <th id="sumPrice"></th></tfoot>
+  </table>
+</body>
+</html>
