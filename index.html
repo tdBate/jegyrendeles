@@ -10,16 +10,12 @@
     <label>Név</label> <br>
     <input id="inpName" type="text"> <br>
     <label>Esemény típus</label>
-    <select>
-      <option value="a">a</option>
-      <option value="b">b</option>
-      <option value="c">c</option>
-    </select> <br>
+    <select id="selectTypes"></select> <br>
     <label>Darabszám</label> <br>
     <input id="inpCount" type="number"> <br>
     <button id="btnSend">Küld</button>
   </div>
-
+  <script type="module" src="./src/main.ts"></script>
   <table>
     <header>
       <th>Név</th>
@@ -27,7 +23,9 @@
       <th>Ár</th>
     </header>
 
-    <tfoot><th style="text-align: start;" colspan="2">Végösszeg:</th> <th id="sumPrice"></th></tfoot>
+    <tbody id="userData"></tbody>
+
+    <tfoot><th style="text-align: start;" colspan="2">Végösszeg:</th> <th id="sumPrice">0</th></tfoot>
   </table>
 </body>
 </html>
