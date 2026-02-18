@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  <div id="form">
-    <label>Név</label> <br>
-    <input id="inpName" type="text"> <br>
-    <label>Esemény típus</label>
-    <select id="selectTypes"></select> <br>
-    <label>Darabszám</label> <br>
-    <input id="inpCount" type="number"> <br>
-    <button id="btnSend">Küld</button>
-  </div>
-  <script type="module" src="./src/main.ts"></script>
-  <table>
-    <header>
-      <th>Név</th>
-      <th>Esemény nev</th>
-      <th>Ár</th>
-    </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="form">
+          <label>Név</label> <br>
+          <input id="inpName" type="text"> <br>
+          <label>Esemény típus</label>
+          <select id="selectTypes"></select> <br>
+          <label>Darabszám</label> <br>
+          <input id="inpCount" type="number"> <br>
+          <button class="btn btn-primary" id="btnSend">Küld</button>
+        </div>
+        <script type="module" src="./src/main.ts"></script>
+        <table class="table">
+          <header>
+            <th>Név</th>
+            <th>Esemény nev</th>
+            <th>Ár</th>
+          </header>
 
-    <tbody id="userData"></tbody>
+          <tbody id="userData"></tbody>
 
-    <tfoot><th style="text-align: start;" colspan="2">Végösszeg:</th> <th id="sumPrice">0</th></tfoot>
-  </table>
+          <tfoot>
+            <th style="text-align: start;" colspan="2">Végösszeg:</th>
+            <th id="sumPrice">0</th>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
 </body>
+
 </html>

@@ -1,4 +1,6 @@
 import type { Ticket } from "./Ticket.ts";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 let tickets : Ticket[];
 let sumPrice = 0
 
