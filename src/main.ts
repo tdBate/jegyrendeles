@@ -2,7 +2,7 @@ import type { Ticket } from "./Ticket.ts";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 let tickets : Ticket[];
-let sumPrice = 0
+let sumPrice: number = 0
 
 async function init() {
   (document.getElementById("btnSend") as HTMLButtonElement).addEventListener("click", processData);
@@ -13,7 +13,7 @@ async function init() {
   const select =document.getElementById("selectTypes") as HTMLSelectElement;
   select.innerHTML = "";
   tickets.forEach((item,index)=>{
-    const option = document.createElement("option");
+    const option = document.createElement("option") as HTMLOptionElement;
     option.value = index.toString();
     option.textContent = item.name;
 
@@ -29,30 +29,30 @@ function processData() {
 
   const table = document.getElementById("userData") as HTMLTableSectionElement;
 
-  const row = document.createElement("tr");
+  const row = document.createElement("tr") as HTMLTableRowElement;
 
-  const nameCol = document.createElement("td");
+  const nameCol = document.createElement("td") as HTMLTableCellElement;
   try {
   if (!name.value) throw new Error("A név értéket meg kell adni");
   nameCol.textContent = name.value;
   row.appendChild(nameCol);
   
-  const typeCol = document.createElement("td");
+  const typeCol = document.createElement("td") as HTMLTableCellElement;
   typeCol.textContent = tickets[type.selectedIndex].name;
   row.appendChild(typeCol);
 
-  const countCol = document.createElement("td");
+  const countCol = document.createElement("td") as HTMLTableCellElement;
   if (parseInt(count.value)>tickets[type.selectedIndex].max) throw new Error("A maxnál nem lehet többet venni");
   if (!(parseInt(count.value)>0)) throw new Error("Nem lehet 0 vagy negatív jegyet venni");
   
-  const price = parseInt(count.value)*tickets[type.selectedIndex].price;
+  const price : number = parseInt(count.value)*tickets[type.selectedIndex].price;
   countCol.textContent = price.toString();
   row.appendChild(countCol);
 
   table.appendChild(row);
 
   sumPrice+= price;
-  (document.getElementById("sumPrice") as HTMLTableCellElement).textContent = sumPrice.toString();}
+  (document.getElementById("sumPrice") as HTMLTableCellElement).textContent = sumPrice.toString()+" Ft";}
   catch(err) {alert(err)}
 }
 
